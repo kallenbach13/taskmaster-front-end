@@ -73,7 +73,8 @@ document.addEventListener("DOMContentLoaded", function() {
         editButton.id = "edit-button"
         editButton.innerText = "Edit"
         editButton.addEventListener("click", (e) => {
-          hiddenForm(task.id, task.title, task.description, p)
+          e.preventDefault()
+          hiddenForm(task.id, task.title, task.description, p, h4, editButton)
         })
 
         const completeButton = document.createElement("button")
@@ -102,8 +103,11 @@ document.addEventListener("DOMContentLoaded", function() {
         taskList.append(li)
     }
 
-    const hiddenForm = (id, title, description, p) => {
-      const hForm = document.createElement("form")
+    const hiddenForm = (id, title, description, p, h4, editButton) => {
+      if (p.children[0] instanceof HTMLFormElement) {
+        p.children[0].remove()
+      } else {
+        const hForm = document.createElement("form")
       
       const titleInput = document.createElement("input")
       titleInput.setAttribute("type", "text", "class", "form-control", "id", "edit-task-title", "placeholder", "Edit Title")
@@ -113,18 +117,22 @@ document.addEventListener("DOMContentLoaded", function() {
       descriptionInput.setAttribute("type", "text", "class", "form-control", "id", "edit-task-description", "placeholder", "Edit Description")
       descriptionInput.value = description
 
-      const submitButton = document.createElement("button")
-      submitButton.className = "btn btn-outline-warning"
-      submitButton.innerText = "Confirm"
-      submitButton.addEventListener("click", (e) => {
+      editButton.className = "btn btn-outline-warning"
+      editButton.innerText = "Confirm"
+      editButton.addEventListener("click", (e) => {
         e.preventDefault()
         const dataObj = {title: titleInput.value, description: descriptionInput.value}
-        API.patch(tasksUrl, id, dataObj)
+        API.patch(tasksUrl, id, dataObj).then(task => {
+          h4.innerText = task.title
+          p.innerText = task.description
+        })
 
       })
      
-      hForm.append(titleInput, descriptionInput, submitButton)
+      hForm.append(titleInput, descriptionInput)
       p.append(hForm)
+      }
+      
     }
 
 
