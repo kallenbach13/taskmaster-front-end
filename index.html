@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title>Taskmaster</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container" id="main-container">
+  <div class="row" id="row-container">
+    <div id="form-panel" class="col-sm">
+      <form id="task-form">
+          <label id="new-task-label-head"><h4>Create A New Task</h4></label>
+          <div class="form-group">
+            <label id="new-task-label">New Task Title:
+            <input name="task-title" type="text" class="form-control" id="new-task-name" placeholder="Type Here">
+            </label>
+            <br> 
+            <label class="new-task-label">New Task Description:
+            <input name="task-description" type="text" class="form-control" id="new-task-description" placeholder="Type Here">
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+  <div id="list-panel" class="col-sm">
+    <label id="task-to-do-head"><h3>Tasks To Do</h3></label>
+		<ul id="task-list" class="list-group">
+
+		</ul>
+    </div>
+    <div id="completed-panel" class="col-sm">
+      <label id="completed-tasks-head"><h4>Completed Tasks</h4></label>
+          <ul id ="completed-list" class="list-group">
+    
+          </ul>
+      </div>
+    </div>
+    </div>
+	<script type="text/javascript" src="./src/index.js"></script>
+</body>
+</html>

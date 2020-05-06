@@ -1,0 +1,47 @@
+#new-task-label-head {
+    
+}
+
+#new-task-label {
+    
+}
+
+#task-to-do-head {
+
+}
+
+#completed-tasks-head {
+
+}
+
+#task-list {
+    list-style-type: none;
+}
+
+#completed-list {
+    list-style-type: none;
+}
+
+.task-card {
+    padding-bottom: 20px
+}
+
+#form-panel {
+    padding-top: 20px;
+}
+
+#task-form {
+}
+
+#list-panel {
+    padding-top: 20px
+}
+
+#completed-panel {
+    padding-top: 20px
+}
+
+#edit-button {
+    margin-right: 5px;
+    margin-left: 5px;
+}
